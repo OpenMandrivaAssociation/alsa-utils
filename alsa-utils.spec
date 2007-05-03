@@ -64,6 +64,12 @@ make all
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std mkdir_p="mkdir -p"
+
+# move alsactl in /sbin in order to reload mixer settings on bootstrapping:
+mkdir $RPM_BUILD_ROOT/sbin
+mv $RPM_BUILD_ROOT/{%_sbindir,sbin}/alsactl
+ln -s ../../sbin/alsactl $RPM_BUILD_ROOT/%_sbindir
+
 %find_lang alsaconf
 %find_lang alsa-utils
 cat alsa-utils.lang >> alsaconf.lang
@@ -76,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc [A-Z][A-Z]*
 %_bindir/[a-i]*
 %_sbindir/alsactl
+/sbin/alsactl
 %_mandir/man1/[a-i]*
 %_datadir/alsa/
 
