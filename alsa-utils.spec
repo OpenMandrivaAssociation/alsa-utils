@@ -11,7 +11,7 @@ Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
 Version: 1.0.14
 %if %beta
-Release: %mkrel 0.%{beta}.1
+Release: %mkrel 0.%{beta}.2
 %else
 Release: %mkrel 2
 %endif
@@ -47,7 +47,7 @@ speaker-test is a tool that enables one to test his head phones.
 %package -n alsaconf
 Summary: ALSA configuration tool
 Group: Sound
-Requires: alsa-utils newt cdialog
+Requires: alsa-utils whiptail cdialog
 Conflicts: alsa-utils < 1.0.9-4mdk
 
 %description -n alsaconf
