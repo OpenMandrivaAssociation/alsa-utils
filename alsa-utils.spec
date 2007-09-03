@@ -1,4 +1,4 @@
-%define beta 0
+%define beta rc1
 %if %beta
 %define fname %name-%{version}%beta
 %else
@@ -9,7 +9,7 @@
 
 Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
-Version: 1.0.14
+Version: 1.0.15
 %if %beta
 Release: %mkrel 0.%{beta}.1
 %else
