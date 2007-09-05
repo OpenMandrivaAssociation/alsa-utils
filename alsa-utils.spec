@@ -4,8 +4,6 @@
 %else
 %define fname %name-%{version}
 %endif
-%define req_lib 0.1
-
 
 Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
@@ -22,7 +20,7 @@ Group: Sound
 Url:   http://www.alsa-project.org
 
 BuildRequires: kernel-headers >= 2.4.0
-BuildRequires: libalsa-devel >= %version-%req_lib
+BuildRequires: libalsa-devel >= %version
 BuildRequires: ncurses-devel
 Requires: alsa-lib >= 1:%version
 # dependancies for alsaconf:
