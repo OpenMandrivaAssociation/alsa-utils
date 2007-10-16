@@ -1,4 +1,4 @@
-%define beta rc1
+%define beta 0
 %if %beta
 %define fname %name-%{version}%beta
 %else
@@ -11,7 +11,7 @@ Version: 1.0.15
 %if %beta
 Release: %mkrel 0.%{beta}.1
 %else
-Release: %mkrel 3
+Release: %mkrel 1
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License: GPL
