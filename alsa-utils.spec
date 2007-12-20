@@ -15,6 +15,7 @@ Release: %mkrel 1
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License: GPL
+BuildRoot: %_tmppath/%name-buildroot
 Group: Sound
 Url:   http://www.alsa-project.org
 
