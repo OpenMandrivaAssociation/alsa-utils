@@ -1,4 +1,6 @@
-%define beta 0
+%define version 1.0.18
+%define alibversion %version
+%define beta rc3
 %if %beta
 %define fname %name-%{version}%beta
 %else
@@ -7,7 +9,7 @@
 
 Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
-Version: 1.0.17
+Version: %version
 %if %beta
 Release: %mkrel 0.%{beta}.1
 %else
@@ -20,9 +22,9 @@ Group: Sound
 Url:   http://www.alsa-project.org
 
 BuildRequires: kernel-headers >= 2.4.0
-BuildRequires: libalsa-devel >= %version
+BuildRequires: libalsa-devel >= %alibversion
 BuildRequires: ncurses-devel
-Requires: alsa-lib >= 1:%version
+Requires: alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires: pciutils
 
@@ -82,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %_sbindir/alsactl
 /sbin/alsactl
 %_mandir/man1/[a-i]*
+%_mandir/man7/alsactl_init.7.*
 %_datadir/alsa/
 
 %files -n speaker-test
