@@ -11,7 +11,7 @@ Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
 Version: %version
 %if %beta
-Release: %mkrel 0.%{beta}.1
+Release: %mkrel 0.%{beta}.2
 %else
 Release: %mkrel 1
 %endif
@@ -20,6 +20,8 @@ License: GPL
 BuildRoot: %_tmppath/%name-buildroot
 Group: Sound
 Url:   http://www.alsa-project.org
+
+Patch0: alsa-utils-1.0.18rc3-mdv-alsactl_segfault.patch
 
 BuildRequires: kernel-headers >= 2.4.0
 BuildRequires: libalsa-devel >= %alibversion
@@ -57,6 +59,7 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 
 %prep
 %setup -q -n %fname
+%patch0 -p1
 
 %build
 %configure2_5x
