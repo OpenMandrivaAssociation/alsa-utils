@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %_sbindir/alsactl
 /sbin/alsactl
 %_mandir/man1/[a-i]*
-%_mandir/man7/alsactl_init.7.*
+%_mandir/man7/alsactl_init.7*
 %_datadir/alsa/
 
 %files -n speaker-test
