@@ -23,7 +23,7 @@ Url:   http://www.alsa-project.org
 
 BuildRequires: kernel-headers >= 2.4.0
 BuildRequires: libalsa-devel >= %alibversion
-BuildRequires: ncurses-devel
+BuildRequires: ncurses-devel ncursesw-devel
 BuildRequires: xmlto
 Requires: alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
