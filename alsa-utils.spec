@@ -13,9 +13,13 @@ Version: %version
 %if %beta
 Release: %mkrel 0.%{beta}.2
 %else
-Release: %mkrel 3
+Release: %mkrel 4
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
+Patch0001: 0001-alsactl-systemd-and-udev-hookup.patch
+Patch0002: 0002-alsactl-Move-asound.state-location-to-var-lib-alsa.patch
+Patch0003: 0003-configure.in-Fix-variable-name.patch
+Patch0004: 0004-alsactl-Add-a-with-udev-rules-dir-configure-option.patch
 License: GPL
 BuildRoot: %_tmppath/%name-buildroot
 Group: Sound
@@ -57,6 +61,7 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 
 %prep
 %setup -q -n %fname
+%apply_patches
 
 %build
 %configure2_5x
@@ -87,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %_mandir/man1/[a-i]*
 %_mandir/man7/alsactl_init.7*
 %_datadir/alsa/
+/lib/systemd/system/*.service
+/lib/systemd/system/*/*.service
+/lib/udev/rules.d/*.rules
 
 %files -n speaker-test
 %_bindir/speaker-test
