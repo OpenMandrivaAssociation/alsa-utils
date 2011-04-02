@@ -1,5 +1,5 @@
-%define version 1.0.23
-%define alibversion %version
+%define ver 1.0.24
+%define alibversion %ver
 %define beta 0
 %if %beta
 %define fname %name-%{version}%beta
@@ -9,17 +9,13 @@
 
 Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
-Version: %version
+Version: %ver.2
 %if %beta
 Release: %mkrel 0.%{beta}.2
 %else
-Release: %mkrel 4
+Release: %mkrel 1
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
-Patch0001: 0001-alsactl-systemd-and-udev-hookup.patch
-Patch0002: 0002-alsactl-Move-asound.state-location-to-var-lib-alsa.patch
-Patch0003: 0003-configure.in-Fix-variable-name.patch
-Patch0004: 0004-alsactl-Add-a-with-udev-rules-dir-configure-option.patch
 License: GPL
 BuildRoot: %_tmppath/%name-buildroot
 Group: Sound
@@ -61,11 +57,10 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 
 %prep
 %setup -q -n %fname
-%apply_patches
 
 %build
-%configure2_5x
-make all
+%configure2_5x --disable-rpath
+%make all
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -105,5 +100,3 @@ rm -rf $RPM_BUILD_ROOT
 %_sbindir/alsaconf
 %_mandir/man8/alsaconf.*
 %lang(fr) %_mandir/fr/man8/alsaconf.*
-
-
