@@ -13,7 +13,7 @@ Version: %ver.2
 %if %beta
 Release: %mkrel 0.%{beta}.2
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License: GPL
@@ -66,9 +66,13 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std mkdir_p="mkdir -p"
 
+# Create /var/lib/alsa tree
+mkdir -p -m 755 $RPM_BUILD_ROOT/var/lib/alsa
+
 # move alsactl in /sbin in order to reload mixer settings on bootstrapping:
 mkdir $RPM_BUILD_ROOT/sbin
 mv $RPM_BUILD_ROOT/{%_sbindir,sbin}/alsactl
+
 ln -s ../../sbin/alsactl $RPM_BUILD_ROOT/%_sbindir
 
 %find_lang alsaconf
@@ -90,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 /lib/systemd/system/*.service
 /lib/systemd/system/*/*.service
 /lib/udev/rules.d/*.rules
+/var/lib/alsa
 
 %files -n speaker-test
 %_bindir/speaker-test
