@@ -63,24 +63,24 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %make all
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std mkdir_p="mkdir -p"
 
 # Create /var/lib/alsa tree
-mkdir -p -m 755 $RPM_BUILD_ROOT/var/lib/alsa
+mkdir -p -m 755 %{buildroot}/var/lib/alsa
 
 # move alsactl in /sbin in order to reload mixer settings on bootstrapping:
-mkdir $RPM_BUILD_ROOT/sbin
-mv $RPM_BUILD_ROOT/{%_sbindir,sbin}/alsactl
+mkdir %{buildroot}/sbin
+mv %{buildroot}/{%_sbindir,sbin}/alsactl
 
-ln -s ../../sbin/alsactl $RPM_BUILD_ROOT/%_sbindir
+ln -s ../../sbin/alsactl %{buildroot}/%_sbindir
 
 %find_lang alsaconf
 %find_lang alsa-utils
 cat alsa-utils.lang >> alsaconf.lang
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
