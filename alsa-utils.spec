@@ -11,13 +11,12 @@ Summary: Advanced Linux Sound Architecture (ALSA) utilities
 Name:    alsa-utils
 Version: %ver.2
 %if %beta
-Release: %mkrel 0.%{beta}.2
+Release: 0.%{beta}.2
 %else
-Release: %mkrel 2
+Release: 3
 %endif
 Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License: GPL
-BuildRoot: %_tmppath/%name-buildroot
 Group: Sound
 Url:   http://www.alsa-project.org
 
@@ -79,11 +78,7 @@ ln -s ../../sbin/alsactl %{buildroot}/%_sbindir
 %find_lang alsa-utils
 cat alsa-utils.lang >> alsaconf.lang
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc [A-Z][A-Z]*
 %_bindir/[a-i]*
 %_sbindir/alsactl
