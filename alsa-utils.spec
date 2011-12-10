@@ -24,6 +24,7 @@ BuildRequires: kernel-headers >= 2.4.0
 BuildRequires: libalsa-devel >= %alibversion
 BuildRequires: ncurses-devel ncursesw-devel
 BuildRequires: xmlto
+BuildRequires: systemd-units
 Requires: alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires: pciutils
