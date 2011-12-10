@@ -59,7 +59,10 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %setup -q -n %fname
 
 %build
-%configure2_5x --disable-rpath
+%configure2_5x \
+    --disable-rpath \
+    --with-systemdsystemunitdir=%{_unitdir}
+
 %make all
 
 %install
