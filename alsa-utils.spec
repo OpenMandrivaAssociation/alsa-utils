@@ -1,4 +1,4 @@
-%define ver 1.0.26
+%define ver 1.0.27
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -15,7 +15,7 @@ Release: 0.%{beta}.1
 %else
 Release: 1
 %endif
-Source:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
+Source0:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License: GPL
 Group: Sound
 Url:   http://www.alsa-project.org
@@ -66,7 +66,6 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %make all
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std mkdir_p="mkdir -p"
 
 # Create /var/lib/alsa tree
