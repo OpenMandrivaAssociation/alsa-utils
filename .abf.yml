@@ -1,4 +1,2 @@
-removed_sources:
-  alsa-utils-1.0.26.tar.bz2: 3863d950c3f42317ac01818d89cc00248cd41b59
 sources:
-  alsa-utils-1.0.27.tar.bz2: 574774475b1e6e4fbd0cf4a91b7905d9dec45d0a
+  alsa-utils-1.0.27.tar.bz2: 247b241bd4b1328acfe2c542b1fa931b618dfe21
