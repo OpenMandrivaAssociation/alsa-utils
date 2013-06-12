@@ -1,4 +1,4 @@
-%define ver 1.0.27
+%define ver 1.0.27.1
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -7,27 +7,27 @@
 %define fname %name-%{version}
 %endif
 
-Summary: Advanced Linux Sound Architecture (ALSA) utilities
-Name:    alsa-utils
-Version: %ver
+Summary:	Advanced Linux Sound Architecture (ALSA) utilities
+Name:		alsa-utils
+Version:	%ver
 %if %beta
-Release: 0.%{beta}.1
+Release:	0.%{beta}.1
 %else
-Release: 1
+Release:	1
 %endif
-Source0:  ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
-License: GPL
-Group: Sound
-Url:   http://www.alsa-project.org
+Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
+License:	GPL
+Group:		Sound
+Url:		http://www.alsa-project.org
 
-BuildRequires: kernel-headers >= 2.4.0
-BuildRequires: libalsa-devel >= %alibversion
-BuildRequires: ncurses-devel ncursesw-devel
-BuildRequires: xmlto
-BuildRequires: systemd-units
-Requires: alsa-lib >= 1:%alibversion
+BuildRequires:	kernel-headers >= 2.4.0
+BuildRequires:	libalsa-devel >= %alibversion
+BuildRequires:	ncurses-devel ncursesw-devel
+BuildRequires:	xmlto
+BuildRequires:	systemd-units
+Requires:		alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
-Requires: pciutils
+Requires:		pciutils
 
 %description
 Advanced Linux Sound Architecture (ALSA) utilities. Modularized architecture
@@ -37,19 +37,21 @@ OSS/Lite (kernel sound drivers), but contains many enhanced features.
 This is the utilities package, which allows you to manipulate ALSA settings.
 
 %package -n speaker-test
-Summary: ALSA test tool
-Group: Sound
-Requires: alsa-utils
-Conflicts: alsa-utils < 1.0.9-4mdk
+Summary:	ALSA test tool
+Group:		Sound
+Requires:	alsa-utils
+Conflicts:	alsa-utils < 1.0.9-4mdk
 
 %description -n speaker-test
 speaker-test is a tool that enables one to test his head phones.
 
 %package -n alsaconf
-Summary: ALSA configuration tool
-Group: Sound
-Requires: alsa-utils whiptail cdialog
-Conflicts: alsa-utils < 1.0.9-4mdk
+Summary:	ALSA configuration tool
+Group:		Sound
+Requires:	alsa-utils
+Requires:	whiptail
+Requires:	cdialog
+Conflicts:	alsa-utils < 1.0.9-4mdk
 
 %description -n alsaconf
 Alsaconf is a tool that enables one to configure his sound card with ALSA.
