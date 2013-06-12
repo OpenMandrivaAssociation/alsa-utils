@@ -93,7 +93,7 @@ cat alsa-utils.lang >> alsaconf.lang
 %_datadir/alsa/
 /lib/systemd/system/*.service
 /lib/systemd/system/*/*.service
-/lib/udev/rules.d/*.rules
+#/lib/udev/rules.d/*.rules
 /var/lib/alsa
 
 %files -n speaker-test
