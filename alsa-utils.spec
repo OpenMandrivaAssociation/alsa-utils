@@ -1,4 +1,4 @@
-%define ver 1.0.27.1
+%define ver 1.0.27.2
 %define alibversion %ver
 %define beta 0
 %if %beta
