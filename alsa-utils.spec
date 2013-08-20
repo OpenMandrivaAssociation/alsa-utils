@@ -104,7 +104,7 @@ fi
 /lib/systemd/system/*.service
 /lib/systemd/system/*/*.service
 /lib/udev/rules.d/*.rules
-%{_localstatedir}/lib/alsa
+#%{_localstatedir}/lib/alsa
 %ghost %{_localstatedir}/lib/alsa/asound.state
 
 %files -n speaker-test
