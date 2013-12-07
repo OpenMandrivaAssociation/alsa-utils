@@ -13,7 +13,7 @@ Version:	%ver
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	3
+Release:	4
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
