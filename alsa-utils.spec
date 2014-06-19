@@ -1,4 +1,4 @@
-%define ver 1.0.27.2
+%define ver 1.0.28
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -13,7 +13,7 @@ Version:	%ver
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	7
+Release:	1
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
