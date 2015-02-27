@@ -97,6 +97,7 @@ fi
 %doc [A-Z][A-Z]*
 %{_bindir}/[a-i]*
 %{_sbindir}/alsactl
+%{_sbindir}/alsa-info.sh
 /sbin/alsactl
 %{_mandir}/man1/[a-i]*
 %{_mandir}/man7/alsactl_init.7*
