@@ -1,4 +1,4 @@
-%define ver 1.0.28
+%define ver 1.0.29
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -13,7 +13,7 @@ Version:	%ver
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	3
+Release:	1
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -64,7 +64,7 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %setup -q -n %fname
 
 %build
-%configure2_5x \
+%configure \
     --disable-rpath \
     --with-systemdsystemunitdir=%{_unitdir}
 
