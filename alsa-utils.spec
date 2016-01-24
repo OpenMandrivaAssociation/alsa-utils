@@ -25,7 +25,8 @@ BuildRequires:	libalsa-devel >= %alibversion
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	xmlto
-BuildRequires:	systemd-units
+BuildRequires:	systemd
+BuildRequires:	fftw-devel
 Requires:		alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:		pciutils
