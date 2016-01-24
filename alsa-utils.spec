@@ -13,7 +13,7 @@ Version:	%ver
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	1
+Release:	2
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -24,9 +24,10 @@ BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	libalsa-devel >= %alibversion
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(ncursesw)
+BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
-BuildRequires:	systemd
-BuildRequires:	fftw-devel
+BuildRequires:	systemdBuildRequires:	fftw-devel
+
 Requires:		alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:		pciutils
