@@ -26,7 +26,8 @@ BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
-BuildRequires:	systemdBuildRequires:	fftw-devel
+BuildRequires:	systemd
+BuildRequires:	fftw-devel
 
 Requires:		alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
