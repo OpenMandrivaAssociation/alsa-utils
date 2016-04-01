@@ -1,4 +1,4 @@
-%define ver 1.1.0
+%define ver 1.1.1
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -13,7 +13,7 @@ Version:	%ver
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	2
+Release:	1
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -101,6 +101,7 @@ fi
 %{_bindir}/[a-i]*
 %{_sbindir}/alsactl
 %{_sbindir}/alsa-info.sh
+%{_sbindir}/alsabat-test.sh
 /sbin/alsactl
 %{_mandir}/man1/[a-i]*
 %{_mandir}/man7/alsactl_init.7*
