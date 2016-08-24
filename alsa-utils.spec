@@ -1,4 +1,4 @@
-%define ver 1.1.1
+%define ver 1.1.2
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -26,12 +26,12 @@ BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
-BuildRequires:	systemd
+BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	fftw-devel
 
 Requires:		alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
-Requires:		pciutils
+Requires:	pciutils
 Requires(pre):	filesystem
 Requires(post):	rpm-helper
 
@@ -69,7 +69,7 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %build
 %configure \
     --disable-rpath \
-    --with-systemdsystemunitdir=%{_unitdir}
+    --with-systemdsystemunitdir=%{_systemunitdir}
 
 %make all
 
@@ -93,7 +93,7 @@ cat alsa-utils.lang >> alsaconf.lang
 
 %post
 if [ -s /etc/asound.state -a ! -s /var/lib/alsa/asound.state ] ; then
-	mv /etc/asound.state /var/lib/alsa/asound.state
+    mv /etc/asound.state /var/lib/alsa/asound.state
 fi
 
 %files
@@ -106,8 +106,8 @@ fi
 %{_mandir}/man1/[a-i]*
 %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
-/lib/systemd/system/*.service
-/lib/systemd/system/*/*.service
+%{_systemunitdir}/*.service
+%{_systemunitdir}/*/*.service
 /lib/udev/rules.d/*.rules
 #%{_localstatedir}/lib/alsa
 %ghost %{_localstatedir}/lib/alsa/asound.state
