@@ -1,4 +1,4 @@
-%define ver 1.1.2
+%define ver 1.1.3
 %define alibversion %ver
 %define beta 0
 %if %beta
@@ -29,7 +29,7 @@ BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	fftw-devel
 
-Requires:		alsa-lib >= 1:%alibversion
+Requires:	alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:	pciutils
 Requires(pre):	filesystem
