@@ -68,7 +68,7 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 %build
 %configure \
     --disable-rpath \
-    --with-systemdsystemunitdir=%{_systemunitdir}
+    --with-systemdsystemunitdir=%{_unitdir}
 
 %make all
 
