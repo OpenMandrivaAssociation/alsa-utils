@@ -105,8 +105,8 @@ fi
 %{_mandir}/man1/[a-i]*
 %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
-%{_systemunitdir}/*.service
-%{_systemunitdir}/*/*.service
+%{_unitdir}/*.service
+%{_unitdir}/*/*.service
 /lib/udev/rules.d/*.rules
 #%{_localstatedir}/lib/alsa
 %ghost %{_localstatedir}/lib/alsa/asound.state
