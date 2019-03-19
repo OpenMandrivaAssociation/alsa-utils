@@ -12,7 +12,7 @@ Version:	1.1.8
 %if %beta
 Release:	0.%{beta}.1
 %else
-Release:	1
+Release:	2
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	fftw-devel
-
+BuildRequires:	systemd-macros
 Requires:	alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:	pciutils
@@ -86,6 +86,12 @@ mv %{buildroot}/{%{_sbindir},sbin}/alsactl
 
 ln -s ../../sbin/alsactl %{buildroot}/%{_sbindir}
 
+install -d %{buildroot}%{_presetdir}
+cat > %{buildroot}%{_presetdir}/86-alsa.preset << EOF
+enable alsa-state.service
+enable alsa-restore.service
+EOF
+
 %find_lang alsaconf
 %find_lang alsa-utils
 cat alsa-utils.lang >> alsaconf.lang
@@ -105,6 +111,7 @@ fi
 %{_mandir}/man1/[a-i]*
 %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
+%{_presetdir}/86-alsa.preset
 %{_unitdir}/*.service
 %{_unitdir}/*/*.service
 /lib/udev/rules.d/*.rules
