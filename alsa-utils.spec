@@ -8,7 +8,7 @@
 
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
-Version:	1.2.1
+Version:	1.2.2
 %if %beta
 Release:	1
 %else
