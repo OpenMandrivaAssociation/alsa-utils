@@ -8,7 +8,7 @@
 
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
-Version:	1.2.1
+Version:	1.2.2
 %if %beta
 Release:	1
 %else
@@ -70,10 +70,10 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
     --disable-rpath \
     --with-systemdsystemunitdir=%{_unitdir}
 
-%make all
+%make_build all
 
 %install
-%makeinstall_std mkdir_p="mkdir -p"
+%make_install mkdir_p="mkdir -p"
 
 # Create /var/lib/alsa tree
 mkdir -p -m 755 %{buildroot}%{_localstatedir}/lib/alsa
