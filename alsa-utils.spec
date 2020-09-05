@@ -10,9 +10,9 @@ Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
 Version:	1.2.3
 %if %beta
-Release:	1
+Release:	0.%beta.1
 %else
-Release:	1
+Release:	2
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -79,6 +79,8 @@ It's often not not needed as mandriva linux will autoconfigure sound cards.
 mkdir -p -m 755 %{buildroot}%{_localstatedir}/lib/alsa
 touch %{buildroot}%{_localstatedir}/lib/alsa/asound.state
 
+# Whatever owns alsaucm should also own the directory
+mkdir -p %{buildroot}%{_datadir}/alsa/ucm2
 
 # move alsactl in /sbin in order to reload mixer settings on bootstrapping:
 mkdir %{buildroot}/sbin
