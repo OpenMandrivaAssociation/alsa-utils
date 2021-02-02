@@ -12,7 +12,7 @@ Version:	1.2.4
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	1
+Release:	2
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -63,7 +63,7 @@ Alsaconf is a tool that enables one to configure his sound card with ALSA.
 It's often not not needed as mandriva linux will autoconfigure sound cards.
 
 %prep
-%setup -q -n %fname
+%autosetup -n %fname -p1
 
 %build
 %configure \
@@ -102,6 +102,14 @@ cat alsa-utils.lang >> alsaconf.lang
 if [ -s /etc/asound.state -a ! -s /var/lib/alsa/asound.state ] ; then
     mv /etc/asound.state /var/lib/alsa/asound.state
 fi
+
+%systemd_post alsa-state.service alsa-restore.service
+
+%preun
+%systemd_preun alsa-state.service alsa-restore.service
+
+%postun
+%systemd_postun_with_restart alsa-state.service alsa-restore.service
 
 %files
 %doc [A-Z][A-Z]*
