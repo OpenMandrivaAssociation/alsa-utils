@@ -12,7 +12,7 @@ Version:	1.2.4
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	2
+Release:	3
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -31,8 +31,7 @@ BuildRequires:	systemd-macros
 Requires:	alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:	pciutils
-Requires(pre):	filesystem
-Requires(post):	rpm-helper
+%systemd_requires
 
 %description
 Advanced Linux Sound Architecture (ALSA) utilities. Modularized architecture
@@ -99,7 +98,7 @@ EOF
 cat alsa-utils.lang >> alsaconf.lang
 
 %post
-if [ -s /etc/asound.state -a ! -s /var/lib/alsa/asound.state ] ; then
+if [ -s /etc/asound.state] && [ ! -s /var/lib/alsa/asound.state ] ; then
     mv /etc/asound.state /var/lib/alsa/asound.state
 fi
 
@@ -136,4 +135,4 @@ fi
 %files -n alsaconf -f alsaconf.lang
 %{_sbindir}/alsaconf
 %{_mandir}/man8/alsaconf.*
-%lang(fr) %_mandir/fr/man8/alsaconf.*
+%lang(fr) %{_mandir}/fr/man8/alsaconf.*
