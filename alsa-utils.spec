@@ -12,7 +12,7 @@ Version:	1.2.4
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	3
+Release:	4
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -98,7 +98,7 @@ EOF
 cat alsa-utils.lang >> alsaconf.lang
 
 %post
-if [ -s /etc/asound.state] && [ ! -s /var/lib/alsa/asound.state ] ; then
+if [ -s /etc/asound.state ] && [ ! -s /var/lib/alsa/asound.state ]; then
     mv /etc/asound.state /var/lib/alsa/asound.state
 fi
 
