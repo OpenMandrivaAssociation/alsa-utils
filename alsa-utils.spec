@@ -8,7 +8,7 @@
 
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
-Version:	1.2.5.1
+Version:	1.2.6
 %if %beta
 Release:	0.%beta.1
 %else
@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	fftw-devel
-BuildRequires:	systemd-macros
+BuildRequires:	systemd-rpm-macros
 Requires:	alsa-lib >= 1:%alibversion
 # dependancies for alsaconf:
 Requires:	pciutils
@@ -117,22 +117,22 @@ fi
 %{_sbindir}/alsa-info.sh
 %{_sbindir}/alsabat-test.sh
 /sbin/alsactl
-%{_mandir}/man1/[a-i]*
-%{_mandir}/man7/alsactl_init.7*
+%doc %{_mandir}/man1/[a-i]*
+%doc %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
 %{_presetdir}/86-alsa.preset
 %{_unitdir}/*.service
 %{_unitdir}/*/*.service
-/lib/udev/rules.d/*.rules
+%{_udevrulesdir}/*.rules
 #%{_localstatedir}/lib/alsa
 %ghost %{_localstatedir}/lib/alsa/asound.state
 
 %files -n speaker-test
 %{_bindir}/speaker-test
-%{_mandir}/man1/speaker-test.*
+%doc %{_mandir}/man1/speaker-test.*
 %{_datadir}/sounds/alsa/
 
 %files -n alsaconf -f alsaconf.lang
 %{_sbindir}/alsaconf
-%{_mandir}/man8/alsaconf.*
+%doc %{_mandir}/man8/alsaconf.*
 %lang(fr) %{_mandir}/fr/man8/alsaconf.*
