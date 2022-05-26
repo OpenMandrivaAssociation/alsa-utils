@@ -1,4 +1,3 @@
-%define alibversion %{version}
 %define beta 0
 %if %beta
 %define fname %name-%{version}%beta
@@ -12,7 +11,7 @@ Version:	1.2.6
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	2
+Release:	3
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -20,15 +19,15 @@ Group:		Sound
 Url:		http://www.alsa-project.org
 
 BuildRequires:	kernel-headers >= 2.4.0
-BuildRequires:	libalsa-devel >= %alibversion
+BuildRequires:	pkgconfig(alsa) >= %{version}
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
-BuildRequires:	fftw-devel
+BuildRequires:	pkgconfig(fftw3)
 BuildRequires:	systemd-rpm-macros
-Requires:	alsa-lib >= 1:%alibversion
+Requires:	alsa-lib >= 1:%{version}
 # dependancies for alsaconf:
 Requires:	pciutils
 %systemd_requires
@@ -81,12 +80,6 @@ touch %{buildroot}%{_localstatedir}/lib/alsa/asound.state
 # Whatever owns alsaucm should also own the directory
 mkdir -p %{buildroot}%{_datadir}/alsa/ucm2
 
-# move alsactl in /sbin in order to reload mixer settings on bootstrapping:
-mkdir %{buildroot}/sbin
-mv %{buildroot}/{%{_sbindir},sbin}/alsactl
-
-ln -s ../../sbin/alsactl %{buildroot}/%{_sbindir}
-
 install -d %{buildroot}%{_presetdir}
 cat > %{buildroot}%{_presetdir}/86-alsa.preset << EOF
 enable alsa-state.service
@@ -116,7 +109,6 @@ fi
 %{_sbindir}/alsactl
 %{_sbindir}/alsa-info.sh
 %{_sbindir}/alsabat-test.sh
-/sbin/alsactl
 %doc %{_mandir}/man1/[a-i]*
 %doc %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
@@ -124,7 +116,6 @@ fi
 %{_unitdir}/*.service
 %{_unitdir}/*/*.service
 %{_udevrulesdir}/*.rules
-#%{_localstatedir}/lib/alsa
 %ghost %{_localstatedir}/lib/alsa/asound.state
 
 %files -n speaker-test
