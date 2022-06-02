@@ -7,11 +7,11 @@
 
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
-Version:	1.2.6
+Version:	1.2.7
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	3
+Release:	1
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -27,7 +27,7 @@ BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	pkgconfig(fftw3)
 BuildRequires:	systemd-rpm-macros
-Requires:	alsa-lib >= 1:%{version}
+Requires:	alsa-lib >= %{version}
 # dependancies for alsaconf:
 Requires:	pciutils
 %systemd_requires
@@ -117,6 +117,7 @@ fi
 %{_unitdir}/*/*.service
 %{_udevrulesdir}/*.rules
 %ghost %{_localstatedir}/lib/alsa/asound.state
+%{_libdir}/alsa-topology/libalsatplg_module_nhlt.so
 
 %files -n speaker-test
 %{_bindir}/speaker-test
