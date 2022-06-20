@@ -11,7 +11,7 @@ Version:	1.2.7
 %if %beta
 Release:	0.%beta.1
 %else
-Release:	1
+Release:	2
 %endif
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
@@ -106,9 +106,6 @@ fi
 %files
 %doc [A-Z][A-Z]*
 %{_bindir}/[a-i]*
-%{_sbindir}/alsactl
-%{_sbindir}/alsa-info.sh
-%{_sbindir}/alsabat-test.sh
 %doc %{_mandir}/man1/[a-i]*
 %doc %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
