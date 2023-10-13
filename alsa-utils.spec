@@ -106,7 +106,9 @@ fi
 %files
 %doc [A-Z][A-Z]*
 %{_bindir}/[a-i]*
+%{_bindir}/nhlt-dmic-info
 %doc %{_mandir}/man1/[a-i]*
+%doc %{_mandir}/man1/nhlt-dmic-info.1.*
 %doc %{_mandir}/man7/alsactl_init.7*
 %{_datadir}/alsa/
 %{_presetdir}/86-alsa.preset
