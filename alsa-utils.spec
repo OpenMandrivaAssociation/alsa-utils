@@ -18,6 +18,7 @@ License:	GPL
 Group:		Sound
 Url:		http://www.alsa-project.org
 
+BuildRequires:  gettext
 BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	pkgconfig(alsa) >= %{version}
 BuildRequires:	pkgconfig(ncurses)
