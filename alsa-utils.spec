@@ -16,7 +16,7 @@ Release:	1
 Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
 License:	GPL
 Group:		Sound
-Url:		http://www.alsa-project.org
+Url:		https://www.alsa-project.org
 
 BuildRequires:  gettext
 BuildRequires:	kernel-headers >= 2.4.0
