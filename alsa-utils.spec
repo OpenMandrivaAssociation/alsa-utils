@@ -1,19 +1,8 @@
-%define beta 0
-%if %beta
-%define fname %name-%{version}%beta
-%else
-%define fname %name-%{version}
-%endif
-
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
 Version:	1.2.13
-%if %beta
-Release:	0.%beta.1
-%else
-Release:	1
-%endif
-Source0:	ftp://ftp.alsa-project.org/pub/utils/%fname.tar.bz2
+Release:	2
+Source0:	http://www.alsa-project.org/files/pub/utils/alsa-utils-%{version}.tar.bz2
 License:	GPL
 Group:		Sound
 Url:		https://www.alsa-project.org
@@ -32,6 +21,10 @@ Requires:	alsa-lib >= %{version}
 # dependancies for alsaconf:
 Requires:	pciutils
 %systemd_requires
+
+%patchlist
+# From upstream
+https://github.com/alsa-project/alsa-utils/commit/f90124c73edd050b24961197a4abcf17e53b41a8.patch
 
 %description
 Advanced Linux Sound Architecture (ALSA) utilities. Modularized architecture
@@ -62,7 +55,7 @@ Alsaconf is a tool that enables one to configure his sound card with ALSA.
 It's often not not needed as mandriva linux will autoconfigure sound cards.
 
 %prep
-%autosetup -n %fname -p1
+%autosetup -p1
 
 %build
 %configure \
