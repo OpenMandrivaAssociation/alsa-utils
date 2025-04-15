@@ -1,7 +1,7 @@
 Summary:	Advanced Linux Sound Architecture (ALSA) utilities
 Name:		alsa-utils
-Version:	1.2.13
-Release:	2
+Version:	1.2.14
+Release:	1
 Source0:	http://www.alsa-project.org/files/pub/utils/alsa-utils-%{version}.tar.bz2
 License:	GPL
 Group:		Sound
@@ -23,8 +23,6 @@ Requires:	pciutils
 %systemd_requires
 
 %patchlist
-# From upstream
-https://github.com/alsa-project/alsa-utils/commit/f90124c73edd050b24961197a4abcf17e53b41a8.patch
 
 %description
 Advanced Linux Sound Architecture (ALSA) utilities. Modularized architecture
@@ -104,6 +102,7 @@ fi
 %doc %{_mandir}/man1/[a-i]*
 %doc %{_mandir}/man1/nhlt-dmic-info.1.*
 %doc %{_mandir}/man7/alsactl_init.7*
+%doc %{_mandir}/man8/alsa-info.sh.8*
 %{_datadir}/alsa/
 %{_presetdir}/86-alsa.preset
 %{_unitdir}/*.service
