@@ -17,6 +17,10 @@ BuildRequires:	xmlto
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	pkgconfig(fftw3)
 BuildRequires:	systemd-rpm-macros
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	make
 Requires:	alsa-lib >= %{version}
 # dependancies for alsaconf:
 Requires:	pciutils
