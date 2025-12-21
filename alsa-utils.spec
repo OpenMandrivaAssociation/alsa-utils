@@ -7,6 +7,7 @@ License:	GPL
 Group:		Sound
 Url:		https://www.alsa-project.org
 
+BuildRequires:	slibtool
 BuildRequires:  gettext
 BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	pkgconfig(alsa) >= %{version}
